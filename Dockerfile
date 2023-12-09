@@ -42,9 +42,9 @@ RUN chown -R www-data:www-data \
     /var/www/html/bootstrap/cache
 
 ENV DB_CONNECTION=mysql
-ENV DB_HOST=XXX
+ENV DB_HOST=35.222.74.129
 ENV DB_PORT=3306
-ENV DB_DATABASE=sekarsari
+ENV DB_DATABASE=sekarsari-laravel
 ENV DB_USERNAME=root
 ENV DB_PASSWORD=12345678
 ENV APP_KEY=base64:CPLSzBfEOFGRmPdz8qdbxjoGiKoKm3/jryvjmeqU0hE=
