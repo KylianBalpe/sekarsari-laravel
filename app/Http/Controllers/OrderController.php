@@ -15,7 +15,8 @@ class OrderController extends Controller
     public function index()
     {
         return view('admin.order.index', [
-            'orders' => Order::paginate(10)
+            'orders' => Order::paginate(10),
+            'title' => 'Orders'
         ]);
     }
 
@@ -66,6 +67,7 @@ class OrderController extends Controller
     {
         Order::destroy($order->id);
 
-        return redirect('/admin/order')->with('success', 'Data telah dihapus');
+        toastr()->warning('Data telah dihapus', ['closeButton' => true]);
+        return redirect('/admin/order');
     }
 }

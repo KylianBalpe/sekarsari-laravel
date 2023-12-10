@@ -23,7 +23,7 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/admin', function () {
-    return view('admin.index');
+    return view('admin.index', ['title' => 'Dashboard']);
 })->middleware('auth');
 
 Route::resource('/admin/product', ProductController::class)->middleware('auth')->except('show');

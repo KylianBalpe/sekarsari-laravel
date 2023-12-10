@@ -14,7 +14,8 @@ class ProductController extends Controller
     public function index()
     {
         return view('admin.product.index', [
-            'products' => Product::paginate(10)
+            'products' => Product::paginate(10),
+            'title' => 'Products'
         ]);
     }
 
@@ -67,6 +68,7 @@ class ProductController extends Controller
     {
         Product::destroy($product->id);
 
-        return redirect('/admin/product')->with('success', 'Data telah dihapus');
+        toastr()->warning('Produk telah dihapus', ['closeButton' => true]);
+        return redirect('/admin/product');
     }
 }

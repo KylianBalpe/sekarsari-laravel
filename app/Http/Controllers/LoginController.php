@@ -24,11 +24,13 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
+            toastr()->success('Welcome Back!', ['closeButton' => true]);
 
             return redirect()->intended('/admin');
         }
 
-        return back()->with('loginError', 'Login gagal! Username atau password salah!');
+        toastr()->error('Username atau password salah!', 'Login gagal!', ['closeButton' => true]);
+        return back();
     }
 
     public function logout(Request $request)

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Log in</title>
+    <title>{{ env('APP_NAME') }} - {{ $title }}</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -20,22 +20,22 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="/assets/index2.html"><b>Admin</b>LTE</a>
+            <b>{{ env('APP_NAME') }}</b>
         </div>
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Sign in to start your session</p>
-                @if (session()->has('loginError'))
+                {{-- @if (session()->has('loginError'))
                     <div class="alert alert-danger" role="alert">
                         {{ session('loginError') }}
                     </div>
-                @endif
+                @endif --}}
                 <form action="/login" method="post">
                     @csrf
                     <div class="input-group mb-3">
-                        <input type="username" class="form-control" placeholder="Username" name="username"
-                            id="username">
+                        <input type="username" class="form-control @error('username') is-invalid @enderror"
+                            placeholder="Username" name="username" id="username">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -43,8 +43,8 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password" name="password"
-                            id="password">
+                        <input type="password" class="form-control @error('password') is-invalid @enderror"
+                            placeholder="Password" name="password" id="password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>

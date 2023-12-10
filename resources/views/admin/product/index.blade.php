@@ -6,7 +6,7 @@
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
-                <div class="row mb-2">
+                <div class="row mb-2 d-flex align-items-center">
                     <div class="col-sm-6">
                         <h1 class="m-0">Product</h1>
                     </div>
@@ -14,10 +14,10 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item">
-                                <a href="#">Home</a>
+                                Dashboard
                             </li>
                             <li class="breadcrumb-item active">
-                                Dashboard v1
+                                {{ $title }}
                             </li>
                         </ol>
                     </div>
@@ -40,16 +40,16 @@
                                     <a href="/admin/product/create" class="btn btn-primary mb-4"><i class="fas fa-plus"></i>
                                         Tambah Data</a>
                                 @endcan
-                                @if (session()->has('success'))
+                                {{-- @if (session()->has('success'))
                                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                                         <strong>{{ session('success') }}</strong>
                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                @endif
+                                @endif --}}
                                 <div class="table-responsive">
-                                    <table class="table-bordered table-striped table">
+                                    <table class="table table-bordered table-striped table-hover">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
@@ -93,9 +93,9 @@
                                             @endforelse
                                         </tbody>
                                     </table>
-                                    <div class="d-flex justify-content-end pt-3">
-                                        {{ $products->links() }}
-                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end pt-3">
+                                    {{ $products->links() }}
                                 </div>
                             </div>
                             <!-- /.card -->

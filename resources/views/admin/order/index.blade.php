@@ -6,7 +6,7 @@
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
-                <div class="row mb-2">
+                <div class="row mb-2 d-flex align-items-center">
                     <div class="col-sm-6">
                         <h1 class="m-0">Product</h1>
                     </div>
@@ -14,10 +14,10 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item">
-                                <a href="#">Home</a>
+                                Dashboard
                             </li>
                             <li class="breadcrumb-item active">
-                                Dashboard v1
+                                {{ $title }}
                             </li>
                         </ol>
                     </div>
@@ -48,58 +48,60 @@
                                         </button>
                                     </div>
                                 @endif
-                                <table class="table-bordered table-striped table">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 40px">No</th>
-                                            <th style="width: 120px">Nama</th>
-                                            <th style="width: 120px">Product</th>
-                                            <th>Alamat</th>
-                                            <th style="width: 180px">Disajikan</th>
-                                            <th style="width: 120px">Waktu</th>
-                                            <th style="width: 120px">Jumlah</th>
-                                            <th style="width: 120px">Biaya</th>
-                                            @can('admin')
-                                                <th style="width: 120px" class="text-center">Action</th>
-                                            @endcan
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @forelse ($orders as $order)
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped table-hover">
+                                        <thead>
                                             <tr>
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $order->user->name }}</td>
-                                                <td>{{ $order->product->nama }}</td>
-                                                <td>{{ $order->alamat }}</td>
-                                                <td>{{ $order->disajikan }}</td>
-                                                <td>{{ $order->waktu }}</td>
-                                                <td>{{ $order->total }}</td>
-                                                <td>@currency($order->price)</td>
+                                                <th style="width: 40px">No</th>
+                                                <th style="width: 120px">Nama</th>
+                                                <th style="width: 120px">Product</th>
+                                                <th>Alamat</th>
+                                                <th style="width: 180px">Disajikan</th>
+                                                <th style="width: 120px">Waktu</th>
+                                                <th style="width: 120px">Jumlah</th>
+                                                <th style="width: 120px">Biaya</th>
                                                 @can('admin')
-                                                    <td class="text-center">
-                                                        <a href="/admin/order/{{ $order->id }}/edit"
-                                                            class="btn btn-sm btn-warning"><span>
-                                                                <i class="fas fa-pencil-alt"></i>
-                                                            </span>
-                                                        </a>
-                                                        <form action="/admin/order/{{ $order->id }}" method="post"
-                                                            class="d-inline">
-                                                            @method('delete')
-                                                            @csrf
-                                                            <button class="btn btn-sm btn-danger"
-                                                                onclick="return confirm('Apakah anda yakin untuk menghapus data?')"><span><i
-                                                                        class="fas fa-trash"></i></span></button>
-                                                        </form>
-                                                    </td>
+                                                    <th style="width: 120px" class="text-center">Action</th>
                                                 @endcan
                                             </tr>
-                                        @empty
-                                            <tr>
-                                                <td colspan="9" class="text-center">Belum ada data order</td>
-                                            </tr>
-                                        @endforelse
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody>
+                                            @forelse ($orders as $order)
+                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $order->user->name }}</td>
+                                                    <td>{{ $order->product->nama }}</td>
+                                                    <td>{{ $order->alamat }}</td>
+                                                    <td>{{ $order->disajikan }}</td>
+                                                    <td>{{ $order->waktu }}</td>
+                                                    <td>{{ $order->total }}</td>
+                                                    <td>@currency($order->price)</td>
+                                                    @can('admin')
+                                                        <td class="text-center">
+                                                            <a href="/admin/order/{{ $order->id }}/edit"
+                                                                class="btn btn-sm btn-warning"><span>
+                                                                    <i class="fas fa-pencil-alt"></i>
+                                                                </span>
+                                                            </a>
+                                                            <form action="/admin/order/{{ $order->id }}" method="post"
+                                                                class="d-inline">
+                                                                @method('delete')
+                                                                @csrf
+                                                                <button class="btn btn-sm btn-danger"
+                                                                    onclick="return confirm('Apakah anda yakin untuk menghapus data?')"><span><i
+                                                                            class="fas fa-trash"></i></span></button>
+                                                            </form>
+                                                        </td>
+                                                    @endcan
+                                                </tr>
+                                            @empty
+                                                <tr>
+                                                    <td colspan="9" class="text-center">Belum ada data order</td>
+                                                </tr>
+                                            @endforelse
+                                        </tbody>
+                                    </table>
+                                </div>
                                 <div class="d-flex justify-content-end pt-3">
                                     {{ $orders->links() }}
                                 </div>

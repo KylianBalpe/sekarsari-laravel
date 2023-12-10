@@ -2,9 +2,9 @@
 
 <aside class="main-sidebar sidebar-light-primary elevation-1">
     <!-- Brand Logo -->
-    <a href="/admin" class="brand-link">
-        <img src="/assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-1" />
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
+    <a href="/admin" class="brand-link text-center">
+        {{-- <img src="/assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-1" /> --}}
+        <span class="brand-text">{{ env('APP_NAME') }}</span>
     </a>
 
     <!-- Sidebar -->

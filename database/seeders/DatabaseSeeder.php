@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         User::create([
             'name' => 'Iqbal Pamula',
             'username' => 'iqbalpamula',
-            'email' => 'balpamula@gmail.com',
+            'email' => 'iqbal@gmail.com',
             'password' => bcrypt('password'),
             'is_admin' => true
         ]);
@@ -43,21 +43,92 @@ class DatabaseSeeder extends Seeder
 
         Product::create([
             'nama' => 'Paket Satu',
-            'slug' => 'paket-hemat',
-            'deskripsi' => '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, natus.onsectetur laboriosam, temporibus officiis cum expedita inventore dolores quam. Cum quisquam ipsam suscipit a maxime laudantium impedit nihil, quam provident cupiditate at atque aspernatur recusandae dignissimos dolorem dolorum libero natus assumenda distinctio quia voluptatem quidem.</p><p>Dolore, esse minus! Id minus quod voluptas magni nulla vel qui fuga error veniam. Ducimus nisi unde minus autem laudantium.CAccusamus, necessitatibus? Fugit dolore commodi animi corporis amet. Sapiente ipsam fugiat minima, perspiciatis possimus accusantium. Excepturi facere voluptates iusto expedita vitae a ducimus natus incidunt minus dicta eum eaque ullam aliquid amet eveniet dolorum, eius laborum error officia, dolor, delectus voluptate odio! At nobis dolores id ut quasi, voluptatibus nihil sit nemo suscipit assumenda necessitatibus.</p>',
+            'slug' => 'paket-satu',
+            'deskripsi' => '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, natus.onsectetur laboriosam, temporibus officiis cum expedita inventore dolores quam.</p>',
             'harga' => 32000
         ]);
 
         Product::create([
             'nama' => 'Paket Dua',
             'slug' => 'paket-dua',
-            'deskripsi' => '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, natus.onsectetur laboriosam, temporibus officiis cum expedita inventore dolores quam. Cum quisquam ipsam suscipit a maxime laudantium impedit nihil, quam provident cupiditate at atque aspernatur recusandae dignissimos dolorem dolorum libero natus assumenda distinctio quia voluptatem quidem.</p><p>Dolore, esse minus! Id minus quod voluptas magni nulla vel qui fuga error veniam. Ducimus nisi unde minus autem laudantium.CAccusamus, necessitatibus? Fugit dolore commodi animi corporis amet. Sapiente ipsam fugiat minima, perspiciatis possimus accusantium. Excepturi facere voluptates iusto expedita vitae a ducimus natus incidunt minus dicta eum eaque ullam aliquid amet eveniet dolorum, eius laborum error officia, dolor, delectus voluptate odio! At nobis dolores id ut quasi, voluptatibus nihil sit nemo suscipit assumenda necessitatibus.</p>',
+            'deskripsi' => '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, natus.onsectetur laboriosam, temporibus officiis cum expedita inventore dolores quam.</p>',
             'harga' => 35000
         ]);
 
+        Product::create([
+            'nama' => 'Paket Tiga',
+            'slug' => 'paket-tiga',
+            'deskripsi' => '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, natus.onsectetur laboriosam, temporibus officiis cum expedita inventore dolores quam.</p>',
+            'harga' => 45000
+        ]);
+
+        Product::create([
+            'nama' => 'Paket Empat',
+            'slug' => 'paket-empat',
+            'deskripsi' => '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, natus.onsectetur laboriosam, temporibus officiis cum expedita inventore dolores quam.</p>',
+            'harga' => 55000
+        ]);
+
+        Product::create([
+            'nama' => 'Paket Lima',
+            'slug' => 'paket-lima',
+            'deskripsi' => '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, natus.onsectetur laboriosam, temporibus officiis cum expedita inventore dolores quam.</p>',
+            'harga' => 65000
+        ]);
+
+        Product::create([
+            'nama' => 'Paket Enam',
+            'slug' => 'paket-enam',
+            'deskripsi' => '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, natus.onsectetur laboriosam, temporibus officiis cum expedita inventore dolores quam.</p>',
+            'harga' => 75000
+        ]);
+
+        Product::create([
+            'nama' => 'Paket Tujuh',
+            'slug' => 'paket-tujuh',
+            'deskripsi' => '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, natus.onsectetur laboriosam, temporibus officiis cum expedita inventore dolores quam.</p>',
+            'harga' => 85000
+        ]);
+
+        Product::create([
+            'nama' => 'Paket Delapan',
+            'slug' => 'paket-delapan',
+            'deskripsi' => '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, natus.onsectetur laboriosam, temporibus officiis cum expedita inventore dolores quam.</p>',
+            'harga' => 95000
+        ]);
+
+        Product::create([
+            'nama' => 'Paket Sembilan',
+            'slug' => 'paket-sembilan',
+            'deskripsi' => '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, natus.onsectetur laboriosam, temporibus officiis cum expedita inventore dolores quam.</p>',
+            'harga' => 105000
+        ]);
+
+        Product::create([
+            'nama' => 'Paket Sepuluh',
+            'slug' => 'paket-sepuluh',
+            'deskripsi' => '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, natus.onsectetur laboriosam, temporibus officiis cum expedita inventore dolores quam.</p>',
+            'harga' => 115000
+        ]);
+
+        Product::create([
+            'nama' => 'Paket Sebelas',
+            'slug' => 'paket-sebelas',
+            'deskripsi' => '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, natus.onsectetur laboriosam, temporibus officiis cum expedita inventore dolores quam.</p>',
+            'harga' => 125000
+        ]);
+
+        Product::create([
+            'nama' => 'Paket Dua Belas',
+            'slug' => 'paket-dua-belas',
+            'deskripsi' => '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, natus.onsectetur laboriosam, temporibus officiis cum expedita inventore dolores quam.</p>',
+            'harga' => 135000
+        ]);
+
+
         Order::create([
             'user_id' => 2,
-            'product_id' => 2,
+            'product_id' => 1,
             'alamat' => 'Kertosono',
             'disajikan' => Carbon::now(),
             'total' => 5,
@@ -66,8 +137,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Order::create([
-            'user_id' => 2,
-            'product_id' => 1,
+            'user_id' => 3,
+            'product_id' => 2,
             'alamat' => 'Patianrowo',
             'disajikan' => Carbon::now(),
             'total' => 2,
@@ -76,8 +147,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Order::create([
-            'user_id' => 3,
-            'product_id' => 1,
+            'user_id' => 2,
+            'product_id' => 3,
             'alamat' => 'Patianrowo',
             'disajikan' => Carbon::now(),
             'total' => 5,
@@ -87,7 +158,87 @@ class DatabaseSeeder extends Seeder
 
         Order::create([
             'user_id' => 3,
-            'product_id' => 2,
+            'product_id' => 4,
+            'alamat' => 'Kertosono',
+            'disajikan' => Carbon::now(),
+            'total' => 5,
+            'price' => 160000,
+            'status_payment' => 'Sudah Dibayar'
+        ]);
+
+        Order::create([
+            'user_id' => 2,
+            'product_id' => 5,
+            'alamat' => 'Kertosono',
+            'disajikan' => Carbon::now(),
+            'total' => 5,
+            'price' => 175000,
+            'status_payment' => 'Belum Dibayar'
+        ]);
+
+        Order::create([
+            'user_id' => 3,
+            'product_id' => 6,
+            'alamat' => 'Patianrowo',
+            'disajikan' => Carbon::now(),
+            'total' => 2,
+            'price' => 64000,
+            'status_payment' => 'Sudah Dibayar'
+        ]);
+
+        Order::create([
+            'user_id' => 2,
+            'product_id' => 7,
+            'alamat' => 'Patianrowo',
+            'disajikan' => Carbon::now(),
+            'total' => 5,
+            'price' => 160000,
+            'status_payment' => 'Sudah Dibayar'
+        ]);
+
+        Order::create([
+            'user_id' => 3,
+            'product_id' => 8,
+            'alamat' => 'Kertosono',
+            'disajikan' => Carbon::now(),
+            'total' => 5,
+            'price' => 160000,
+            'status_payment' => 'Sudah Dibayar'
+        ]);
+
+        Order::create([
+            'user_id' => 2,
+            'product_id' => 9,
+            'alamat' => 'Kertosono',
+            'disajikan' => Carbon::now(),
+            'total' => 5,
+            'price' => 175000,
+            'status_payment' => 'Belum Dibayar'
+        ]);
+
+        Order::create([
+            'user_id' => 3,
+            'product_id' => 10,
+            'alamat' => 'Patianrowo',
+            'disajikan' => Carbon::now(),
+            'total' => 2,
+            'price' => 64000,
+            'status_payment' => 'Sudah Dibayar'
+        ]);
+
+        Order::create([
+            'user_id' => 2,
+            'product_id' => 11,
+            'alamat' => 'Patianrowo',
+            'disajikan' => Carbon::now(),
+            'total' => 5,
+            'price' => 160000,
+            'status_payment' => 'Sudah Dibayar'
+        ]);
+
+        Order::create([
+            'user_id' => 3,
+            'product_id' => 12,
             'alamat' => 'Kertosono',
             'disajikan' => Carbon::now(),
             'total' => 5,
