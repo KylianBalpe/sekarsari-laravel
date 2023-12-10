@@ -37,8 +37,8 @@
                         <div class="card">
                             <div class="card-body">
                                 @can('admin')
-                                <a href="/admin/product/create" class="btn btn-primary mb-4"><i class="fas fa-plus"></i>
-                                    Tambah Data</a>
+                                    <a href="/admin/product/create" class="btn btn-primary mb-4"><i class="fas fa-plus"></i>
+                                        Tambah Data</a>
                                 @endcan
                                 @if (session()->has('success'))
                                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -60,7 +60,7 @@
                                             <th style="width: 120px">Jumlah</th>
                                             <th style="width: 120px">Biaya</th>
                                             @can('admin')
-                                            <th style="width: 120px" class="text-center">Action</th>
+                                                <th style="width: 120px" class="text-center">Action</th>
                                             @endcan
                                         </tr>
                                     </thead>
@@ -76,21 +76,21 @@
                                                 <td>{{ $order->total }}</td>
                                                 <td>@currency($order->price)</td>
                                                 @can('admin')
-                                                <td class="text-center">
-                                                    <a href="/admin/order/{{ $order->id }}/edit"
-                                                        class="btn btn-sm btn-warning"><span>
-                                                            <i class="fas fa-pencil-alt"></i>
-                                                        </span>
-                                                    </a>
-                                                    <form action="/admin/order/{{ $order->id }}" method="post"
-                                                        class="d-inline">
-                                                        @method('delete')
-                                                        @csrf
-                                                        <button class="btn btn-sm btn-danger"
-                                                            onclick="return confirm('Apakah anda yakin untuk menghapus data?')"><span><i
-                                                                    class="fas fa-trash"></i></span></button>
-                                                    </form>
-                                                </td>
+                                                    <td class="text-center">
+                                                        <a href="/admin/order/{{ $order->id }}/edit"
+                                                            class="btn btn-sm btn-warning"><span>
+                                                                <i class="fas fa-pencil-alt"></i>
+                                                            </span>
+                                                        </a>
+                                                        <form action="/admin/order/{{ $order->id }}" method="post"
+                                                            class="d-inline">
+                                                            @method('delete')
+                                                            @csrf
+                                                            <button class="btn btn-sm btn-danger"
+                                                                onclick="return confirm('Apakah anda yakin untuk menghapus data?')"><span><i
+                                                                        class="fas fa-trash"></i></span></button>
+                                                        </form>
+                                                    </td>
                                                 @endcan
                                             </tr>
                                         @empty
@@ -100,9 +100,9 @@
                                         @endforelse
                                     </tbody>
                                 </table>
-                                    <div class="d-flex justify-content-end pt-4">
-                                        {{ $orders->links() }}
-                                    </div>
+                                <div class="d-flex justify-content-end pt-3">
+                                    {{ $orders->links() }}
+                                </div>
                             </div>
                             <!-- /.card -->
                         </div>

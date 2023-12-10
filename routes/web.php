@@ -16,7 +16,7 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/', [LoginController::class, 'index'])->middleware('guest')->name('login');
+Route::get('/', [LoginController::class, 'index'])->middleware('guest');
 
 Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);

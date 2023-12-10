@@ -93,7 +93,7 @@
                                             @endforelse
                                         </tbody>
                                     </table>
-                                    <div class="d-flex justify-content-end pt-4">
+                                    <div class="d-flex justify-content-end pt-3">
                                         {{ $products->links() }}
                                     </div>
                                 </div>
