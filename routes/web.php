@@ -24,7 +24,7 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/admin', function () {
     return view('admin.index');
-})->middleware('admin');
+})->middleware('auth');
 
-Route::resource('/admin/product', ProductController::class)->middleware('admin');
-Route::resource('/admin/order', OrderController::class)->middleware('admin');
+Route::resource('/admin/product', ProductController::class)->middleware('auth')->except('show');
+Route::resource('/admin/order', OrderController::class)->middleware('auth')->except('show');
