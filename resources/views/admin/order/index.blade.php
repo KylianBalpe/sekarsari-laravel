@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row mb-2 d-flex align-items-center">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Product</h1>
+                        <h1 class="m-0">{{ $title }}</h1>
                     </div>
                     <!-- /.col -->
                     <div class="col-sm-6">
@@ -56,9 +56,9 @@
                                                 <th style="width: 120px">Nama</th>
                                                 <th style="width: 120px">Product</th>
                                                 <th>Alamat</th>
-                                                <th style="width: 180px">Disajikan</th>
-                                                <th style="width: 120px">Waktu</th>
-                                                <th style="width: 120px">Jumlah</th>
+                                                <th style="width: 160px" class="text-center">Disajikan</th>
+                                                <th style="width: 120px" class="text-center">Waktu</th>
+                                                <th style="width: 75px" class="text-center">Jumlah</th>
                                                 <th style="width: 120px">Biaya</th>
                                                 @can('admin')
                                                     <th style="width: 120px" class="text-center">Action</th>
@@ -72,9 +72,9 @@
                                                     <td>{{ $order->user->name }}</td>
                                                     <td>{{ $order->product->nama }}</td>
                                                     <td>{{ $order->alamat }}</td>
-                                                    <td>{{ $order->disajikan }}</td>
-                                                    <td>{{ $order->waktu }}</td>
-                                                    <td>{{ $order->total }}</td>
+                                                    <td class="text-center">{{ $order->disajikan->format('d F Y') }}</td>
+                                                    <td class="text-center">{{ $order->disajikan->format('H:i:s') }}</td>
+                                                    <td class="text-center">{{ $order->total }}</td>
                                                     <td>@currency($order->price)</td>
                                                     @can('admin')
                                                         <td class="text-center">
@@ -102,7 +102,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class="d-flex justify-content-end pt-3">
+                                <div class="d-flex justify-content-center pt-3">
                                     {{ $orders->links() }}
                                 </div>
                             </div>

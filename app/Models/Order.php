@@ -12,6 +12,10 @@ class Order extends Model
     protected $guarded = ['id'];
     protected $dates = ['disajikan'];
 
+    protected $casts = [
+        'disajikan' => 'datetime',
+    ];
+
     public function Product()
     {
         return $this->belongsTo(Product::class);

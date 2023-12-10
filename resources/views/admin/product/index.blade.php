@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row mb-2 d-flex align-items-center">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Product</h1>
+                        <h1 class="m-0">{{ $title }}</h1>
                     </div>
                     <!-- /.col -->
                     <div class="col-sm-6">
@@ -40,14 +40,6 @@
                                     <a href="/admin/product/create" class="btn btn-primary mb-4"><i class="fas fa-plus"></i>
                                         Tambah Data</a>
                                 @endcan
-                                {{-- @if (session()->has('success'))
-                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                        <strong>{{ session('success') }}</strong>
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                @endif --}}
                                 <div class="table-responsive">
                                     <table class="table table-bordered table-striped table-hover">
                                         <thead>
@@ -94,7 +86,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class="d-flex justify-content-end pt-3">
+                                <div class="d-flex justify-content-center pt-3">
                                     {{ $products->links() }}
                                 </div>
                             </div>
