@@ -43,21 +43,41 @@
                                     Kembali</a>
                             </div>
                             <div class="card-body">
-                                <form>
+                                <form action="/admin/product/{{ $product->slug }}" method="POST">
+                                    @method('PUT')
+                                    @csrf
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Nama</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1"
-                                            placeholder="Nama" value="{{ $product->nama }}">
+                                        <label for="nama">Nama</label>
+                                        <input type="text" name="nama"
+                                            class="form-control @error('nama') is-invalid @enderror" id="nama"
+                                            placeholder="Nama" value="{{ old('name', $product->nama) }}">
+                                        @error('nama')
+                                            <div class="invalid-feedback mb-1">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
-                                    <input type="hidden" name="slug" value="{{ $product->slug }}">
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Deskripsi</label>
-                                        <textarea class="form-control" id="exampleInputPassword1" rows="4" placeholder="Deskripsi">{{ $product->deskripsi }}</textarea>
+                                        <label for="deskripsi">Deskripsi</label>
+                                        <input id="deskripsi" type="hidden" name="deskripsi"
+                                            value="{{ old('name', $product->deskripsi) }}">
+                                        <trix-editor input="deskripsi"></trix-editor>
+                                        @error('deskripsi')
+                                            <small class="text-danger">
+                                                {{ $message }}
+                                            </small>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Harga</label>
-                                        <input type="text" class="form-control" id="exampleInputPassword1"
-                                            placeholder="Harga" value="{{ $product->harga }}">
+                                        <label for="harga">Harga</label>
+                                        <input type="text" class="form-control @error('harga') is-invalid @enderror"
+                                            id="harga" name="harga" placeholder="Harga"
+                                            value="{{ old('harga', $product->harga) }}">
+                                        @error('harga')
+                                            <div class="invalid-feedback mb-1">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                             </div>
                             <div class="card-footer">
@@ -75,4 +95,9 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+    <script>
+        document.addEventListener('trix-file-accept', function(e) {
+            e.preventDefault();
+        })
+    </script>
 @endsection

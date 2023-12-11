@@ -42,13 +42,7 @@ RUN chown -R www-data:www-data \
     /var/www/html/bootstrap/cache
 
 ENV DB_CONNECTION=mysql
-ENV DB_HOST=34.121.56.178
-ENV DB_PORT=3306
 ENV DB_DATABASE=sekarsari-laravel
-ENV DB_USERNAME=root
-ENV DB_PASSWORD=root1234
-
-ENV APP_KEY=base64:CPLSzBfEOFGRmPdz8qdbxjoGiKoKm3/jryvjmeqU0hE=
 ENV APP_NAME=Sekarsari
 
 # Expose port 9000 and start php-fpm server (for FastCGI Process Manager)

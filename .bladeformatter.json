@@ -1,7 +1,7 @@
 {
     "indentSize": 1,
     "wrapAttributes": "auto",
-    "wrapLineLength": 360,
+    "wrapLineLength": 480,
     "endWithNewLine": true,
     "noMultipleEmptyLines": false,
     "useTabs": true,

@@ -41,9 +41,9 @@
                                         Tambah Data</a>
                                 @endcan
                                 <div class="table-responsive">
-                                    <table class="table table-bordered table-striped table-hover">
+                                    <table class="table table-bordered table-striped table-hover align-items-center">
                                         <thead>
-                                            <tr>
+                                            <tr class="align-items-center">
                                                 <th>No</th>
                                                 <th style="width: 120px">Nama</th>
                                                 <th style="width: 120px">Slug</th>

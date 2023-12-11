@@ -19,6 +19,7 @@ steps:
       - "--cpu=2"
       - "--memory=2048Mi"
       - "--allow-unauthenticated"
+      - "--set-secrets=DB_HOST=db_host:latest,DB_PORT=db_port:latest,DB_USERNAME=db_username:latest,DB_PASSWORD=db_password:latest,APP_KEY=laravel_app_key:latest"
 images:
   - "gcr.io/$PROJECT_ID/sekarsari-laravel:$COMMIT_SHA"
 logsBucket: "gs://sekarsari-laravel-buckets/logs"

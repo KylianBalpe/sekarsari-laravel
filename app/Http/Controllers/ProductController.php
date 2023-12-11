@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Http\Requests\StoreProductRequest;
-use App\Http\Requests\UpdateProductRequest;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class ProductController extends Controller
 {
@@ -32,10 +33,23 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProductRequest $request)
+    public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nama' => 'required|max:255',
+            'deskripsi' => 'required',
+            'harga' => 'required|numeric',
+        ]);
+
+        $baseSlug = Str::slug($validatedData['nama']);
+        $validatedData['slug'] = $this->generateUniqueCreateSlug($baseSlug);
+
+        Product::create($validatedData);
+
+        toastr()->success('Produk baru telah ditambahkan', ['closeButton' => true]);
+        return redirect('/admin/product');
     }
+
 
     /**
      * Display the specified resource.
@@ -59,9 +73,25 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProductRequest $request, Product $product)
+    public function update(Request $request, Product $product)
     {
-        //
+        $rules = [
+            'nama' => 'required|max:255',
+            'deskripsi' => 'required',
+            'harga' => 'required|numeric',
+        ];
+
+        $validatedData = $request->validate($rules);
+
+        if ($validatedData['nama'] != $product->nama) {
+            $baseSlug = Str::slug($validatedData['nama']);
+            $validatedData['slug'] = $this->generateUniqueUpdateSlug($baseSlug, $product);
+        }
+
+        $product->update($validatedData);
+
+        toastr()->success('Produk telah diperbarui', ['closeButton' => true]);
+        return redirect('/admin/product');
     }
 
     /**
@@ -73,5 +103,31 @@ class ProductController extends Controller
 
         toastr()->warning('Produk telah dihapus', ['closeButton' => true]);
         return redirect('/admin/product');
+    }
+
+    private function generateUniqueCreateSlug($slug)
+    {
+        $originalSlug = $slug;
+        $count = 1;
+
+        while (Product::where('slug', $slug)->exists()) {
+            $slug = $originalSlug . '-' . $count;
+            $count++;
+        }
+
+        return $slug;
+    }
+
+    private function generateUniqueUpdateSlug($slug, $product)
+    {
+        $originalSlug = $slug;
+        $count = 1;
+
+        while (Product::where('slug', $slug)->where('id', '!=', $product->id)->exists()) {
+            $slug = $originalSlug . '-' . $count;
+            $count++;
+        }
+
+        return $slug;
     }
 }

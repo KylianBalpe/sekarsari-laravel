@@ -43,20 +43,39 @@
                                     Kembali</a>
                             </div>
                             <div class="card-body">
-                                <form>
+                                <form action="/admin/product" method="POST">
+                                    @csrf
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Nama</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1"
-                                            placeholder="Nama">
+                                        <label for="nama">Nama</label>
+                                        <input type="text" name="nama"
+                                            class="form-control @error('nama') is-invalid @enderror" id="nama"
+                                            placeholder="Nama" value="{{ old('nama') }}">
+                                        @error('nama')
+                                            <div class="invalid-feedback mb-1">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Deskripsi</label>
-                                        <textarea class="form-control" id="exampleInputPassword1" rows="4" placeholder="Deskripsi"></textarea>
+                                        <label for="deskripsi">Deskripsi</label>
+                                        <input id="deskripsi" type="hidden" name="deskripsi"
+                                            value="{{ old('deskripsi') }}">
+                                        <trix-editor input="deskripsi"></trix-editor>
+                                        @error('deskripsi')
+                                            <small class="text-danger">
+                                                {{ $message }}
+                                            </small>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Harga</label>
-                                        <input type="text" class="form-control" id="exampleInputPassword1"
-                                            placeholder="Harga">
+                                        <label for="harga">Harga</label>
+                                        <input type="text" class="form-control @error('harga') is-invalid @enderror"
+                                            id="harga" name="harga" placeholder="Harga" value="{{ old('harga') }}">
+                                        @error('harga')
+                                            <div class="invalid-feedback mb-1">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                             </div>
                             <div class="card-footer">
@@ -74,4 +93,9 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+    <script>
+        document.addEventListener('trix-file-accept', function(e) {
+            e.preventDefault();
+        })
+    </script>
 @endsection

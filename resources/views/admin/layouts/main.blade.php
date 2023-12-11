@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="/assets/plugins/daterangepicker/daterangepicker.css" />
     <!-- summernote -->
     <link rel="stylesheet" href="/assets/plugins/summernote/summernote-bs4.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -85,6 +87,8 @@
     <script src="/assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
     <!-- AdminLTE App -->
     <script src="/assets/js/adminlte.js"></script>
+
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
 </body>
 
 </html>
