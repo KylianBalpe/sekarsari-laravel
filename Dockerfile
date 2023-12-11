@@ -54,5 +54,4 @@ ENV APP_NAME=Sekarsari
 # Expose port 9000 and start php-fpm server (for FastCGI Process Manager)
 EXPOSE 8080
 
-# CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8080"]
-CMD ["php", "artisan", "migrate", "--seed", "&&", "php", "artisan", "serve", "--host=0.0.0.0", "--port=8080"]
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8080"]
