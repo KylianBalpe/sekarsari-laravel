@@ -42,11 +42,11 @@ RUN chown -R www-data:www-data \
     /var/www/html/bootstrap/cache
 
 ENV DB_CONNECTION=mysql
-ENV DB_HOST=34.133.172.164
+ENV DB_HOST=34.121.56.178
 ENV DB_PORT=3306
 ENV DB_DATABASE=sekarsari-laravel
 ENV DB_USERNAME=root
-ENV DB_PASSWORD=root123
+ENV DB_PASSWORD=root1234
 
 ENV APP_KEY=base64:CPLSzBfEOFGRmPdz8qdbxjoGiKoKm3/jryvjmeqU0hE=
 ENV APP_NAME=Sekarsari
@@ -54,4 +54,15 @@ ENV APP_NAME=Sekarsari
 # Expose port 9000 and start php-fpm server (for FastCGI Process Manager)
 EXPOSE 8080
 
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8080"]
+# CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8080"]
+
+# Create a shell script to run migration and serve the application
+RUN echo '#!/bin/sh\n\
+    php artisan migrate:fresh --seed\n\
+    php artisan serve --host=0.0.0.0 --port=8080' > /usr/local/bin/start.sh
+
+# Give execution permission to the script
+RUN chmod +x /usr/local/bin/start.sh
+
+# Command to run the shell script
+CMD ["/usr/local/bin/start.sh"]
