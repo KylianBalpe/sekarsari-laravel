@@ -25,43 +25,30 @@
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Sign in to start your session</p>
-                {{-- @if (session()->has('loginError'))
-                    <div class="alert alert-danger" role="alert">
-                        {{ session('loginError') }}
-                    </div>
-                @endif --}}
+                <p class="login-box-msg">Login dulu ngap</p>
                 <form action="/login" method="post">
                     @csrf
-                    <div class="input-group mb-3">
+                    <div class="form-group mb-3">
                         <input type="username" class="form-control @error('username') is-invalid @enderror"
                             placeholder="Username" name="username" id="username">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
+                        @error('username')
+                            <div class="invalid-feedback mb-1">
+                                {{ $message }}
                             </div>
-                        </div>
+                        @enderror
                     </div>
-                    <div class="input-group mb-3">
+                    <div class="form-group mb-3">
                         <input type="password" class="form-control @error('password') is-invalid @enderror"
                             placeholder="Password" name="password" id="password">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
+                        @error('password')
+                            <div class="invalid-feedback mb-1">
+                                {{ $message }}
                             </div>
-                        </div>
+                        @enderror
                     </div>
                     <div class="row">
-                        <div class="col-8">
-                            <div class="icheck-primary">
-                                <input type="checkbox" id="remember">
-                                <label for="remember">
-                                    Remember Me
-                                </label>
-                            </div>
-                        </div>
                         <!-- /.col -->
-                        <div class="col-4">
+                        <div class="col-12">
                             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
                         </div>
                         <!-- /.col -->
