@@ -36,7 +36,7 @@
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                @can('admin')
+                                @can('superAdmin')
                                     <a href="/admin/product/create" class="btn btn-primary mb-4"><i class="fas fa-plus"></i>
                                         Tambah Data</a>
                                 @endcan

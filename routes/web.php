@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MigrationSeedController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 
@@ -22,11 +23,15 @@ Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->na
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::get('/admin', function () {
-    return view('admin.index', ['title' => 'Dashboard']);
-})->middleware('admin');
 
 // Route::get('/admin/product/checkSlug', [ProductController::class, 'checkSlug']);
-Route::resource('/admin/product', ProductController::class)->middleware('admin')->except('show');
 
-Route::resource('/admin/order', OrderController::class)->middleware('admin')->except('show');
+
+Route::middleware('admin')->group(function () {
+    Route::get('/admin', function () {
+        return view('admin.index', ['title' => 'Dashboard']);
+    });
+    Route::resource('/admin/product', ProductController::class)->except('show');
+    Route::resource('/admin/order', OrderController::class)->except('show');
+    Route::get('/migrate-fresh-seed', [MigrationSeedController::class, 'migrateFreshSeed']);
+});
