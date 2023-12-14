@@ -48,9 +48,9 @@ ENV APP_NAME=Sekarsari
 # Expose port 9000 and start php-fpm server (for FastCGI Process Manager)
 EXPOSE 8080
 
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8080"]
-
 RUN chmod +x /var/www/html/migration.sh
 
 # This will run the shell file at the time when container is up-and-running successfully (and NOT at the BUILD time)
 ENTRYPOINT ["/var/www/html/migration.sh"]
+
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8080"]
