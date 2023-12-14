@@ -59,7 +59,7 @@ RUN php artisan view:clear
 
 RUN php artisan view:cache
 
-RUN php artisan migrate:fresh --seed --yes
+RUN php artisan migrate:fresh --seed --force
 
 # Expose port 9000 and start php-fpm server (for FastCGI Process Manager)
 EXPOSE 8080
