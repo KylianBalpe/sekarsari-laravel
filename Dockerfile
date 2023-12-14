@@ -55,6 +55,6 @@ ENV DB_PASSWORD=12345678
 # Expose port 9000 and start php-fpm server (for FastCGI Process Manager)
 EXPOSE 8080
 
-
+RUN php artisan migrate:fresh --seed --force
 
 CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8080"]
