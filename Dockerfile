@@ -33,6 +33,7 @@ RUN docker-php-ext-install gd
 # Install composer (php package manager)
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN composer install --no-scripts
+
 # Copy existing application directory contents to the working directory
 COPY . /var/www/html
 
@@ -45,8 +46,11 @@ ENV DB_CONNECTION=mysql
 ENV DB_DATABASE=sekarsari-laravel
 ENV APP_NAME=Sekarsari
 
-# Expose port 9000 and start php-fpm server (for FastCGI Process Manager)
+# Expose port 8080
 EXPOSE 8080
 
-# This will run the shell file at the time when container is up-and-running successfully (and NOT at the BUILD time)
+# Set execute permissions for migration.sh
+RUN chmod +x /var/www/html/migration.sh
+
+# Run migrations and start the PHP built-in server
 CMD ["/var/www/html/migration.sh"]
