@@ -59,8 +59,6 @@ RUN php artisan view:clear
 
 RUN php artisan view:cache
 
-RUN composer migrate-fresh
-
 # Expose port 9000 and start php-fpm server (for FastCGI Process Manager)
 EXPOSE 8080
 
