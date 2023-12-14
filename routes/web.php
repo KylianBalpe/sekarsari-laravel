@@ -34,5 +34,3 @@ Route::middleware('admin')->group(function () {
     Route::resource('/admin/product', ProductController::class)->except('show');
     Route::resource('/admin/order', OrderController::class)->except('show');
 });
-
-Route::get('/migrate-fresh-seed', [MigrationSeedController::class, 'migrateFreshSeed']);
