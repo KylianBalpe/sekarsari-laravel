@@ -25,12 +25,12 @@
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Login dulu ngap</p>
+                <p class="login-box-msg">Login dulu ngap!</p>
                 <form action="/login" method="post">
                     @csrf
                     <div class="form-group mb-3">
                         <input type="username" class="form-control @error('username') is-invalid @enderror"
-                            placeholder="Username" name="username" id="username">
+                            placeholder="Username" name="username" id="username" value="{{ old('username') }}">
                         @error('username')
                             <div class="invalid-feedback mb-1">
                                 {{ $message }}
@@ -39,7 +39,7 @@
                     </div>
                     <div class="form-group mb-3">
                         <input type="password" class="form-control @error('password') is-invalid @enderror"
-                            placeholder="Password" name="password" id="password">
+                            placeholder="Password" name="password" id="password" value="{{ old('password') }}">
                         @error('password')
                             <div class="invalid-feedback mb-1">
                                 {{ $message }}
@@ -47,13 +47,14 @@
                         @enderror
                     </div>
                     <div class="row">
-                        <!-- /.col -->
                         <div class="col-12">
-                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                            <button type="submit" class="btn btn-primary btn-block">Masuk</button>
                         </div>
-                        <!-- /.col -->
                     </div>
                 </form>
+                <div class="row mt-3 text-center justify-content-center">
+                    <p class="pb-0 mb-0">Belum punya akun? Daftar <a href="/register">disini.</a></p>
+                </div>
             </div>
             <!-- /.login-card-body -->
         </div>

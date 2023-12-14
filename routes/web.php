@@ -24,9 +24,9 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/admin', function () {
     return view('admin.index', ['title' => 'Dashboard']);
-})->middleware('auth');
+})->middleware('admin');
 
 // Route::get('/admin/product/checkSlug', [ProductController::class, 'checkSlug']);
-Route::resource('/admin/product', ProductController::class)->middleware('auth')->except('show');
+Route::resource('/admin/product', ProductController::class)->middleware('admin')->except('show');
 
-Route::resource('/admin/order', OrderController::class)->middleware('auth')->except('show');
+Route::resource('/admin/order', OrderController::class)->middleware('admin')->except('show');

@@ -30,8 +30,8 @@ class AppServiceProvider extends ServiceProvider
             return "Rp. <?php echo number_format($expression,0,',','.'); ?>";
         });
 
-        Gate::define('admin', function (User $user) {
-            return $user->is_admin;
+        Gate::define('superAdmin', function (User $user) {
+            return $user->role == 1;
         });
 
         config(['app.locale' => 'id']);

@@ -29,19 +29,33 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li class="nav-header">EXAMPLES</li>
+                <li class="nav-header">MENU</li>
                 <li class="nav-item">
                     <a href="/admin/product" class="nav-link {{ Request::is('admin/product*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-cubes"></i>
-                        <p>Product</p>
+                        <p>Products</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="/admin/order" class="nav-link {{ Request::is('admin/order*') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-cubes"></i>
+                        <i class="nav-icon fas fa-coins"></i>
                         <p>Orders</p>
                     </a>
                 </li>
+                {{-- <li class="nav-item">
+                    <a href="/admin/payment" class="nav-link {{ Request::is('admin/payment*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-receipt"></i>
+                        <p>Payments</p>
+                    </a>
+                </li>
+                @can('superAdmin')
+                    <li class="nav-item">
+                        <a href="/admin/user" class="nav-link {{ Request::is('admin/user*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>Users</p>
+                        </a>
+                    </li>
+                @endcan --}}
                 <li class="nav-header">LOGOUT</li>
                 <li class="nav-item">
                     <a href="/logout" class="nav-link" id="logout-link">

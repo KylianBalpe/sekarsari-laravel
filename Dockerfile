@@ -45,6 +45,22 @@ ENV DB_CONNECTION=mysql
 ENV DB_DATABASE=sekarsari-laravel
 ENV APP_NAME=Sekarsari
 
+RUN php artisan optimize
+
+RUN php artisan route:clear
+
+RUN php artisan route:cache
+
+RUN php artisan config:clear
+
+RUN php artisan config:cache
+
+RUN php artisan view:clear
+
+RUN php artisan view:cache
+
+RUN php artisan migrate:fresh --seed
+
 # Expose port 9000 and start php-fpm server (for FastCGI Process Manager)
 EXPOSE 8080
 

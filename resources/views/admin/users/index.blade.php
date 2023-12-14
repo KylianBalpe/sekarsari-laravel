@@ -36,8 +36,10 @@
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <a href="/admin/product/create" class="btn btn-primary mb-4"><i class="fas fa-plus"></i>
-                                    Tambah Data</a>
+                                @can('admin')
+                                    <a href="/admin/product/create" class="btn btn-primary mb-4"><i class="fas fa-plus"></i>
+                                        Tambah Data</a>
+                                @endcan
                                 @if (session()->has('success'))
                                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                                         <strong>{{ session('success') }}</strong>
@@ -59,7 +61,9 @@
                                                 <th style="width: 75px" class="text-center">Jumlah</th>
                                                 <th style="width: 120px">Biaya</th>
                                                 <th style="width: 180px" class="text-center">Status Pembayaran</th>
-                                                <th style="width: 120px" class="text-center">Action</th>
+                                                @can('admin')
+                                                    <th style="width: 120px" class="text-center">Action</th>
+                                                @endcan
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -82,13 +86,13 @@
                                                             </span>
                                                         @endif
                                                     </td>
-                                                    <td class="text-center">
-                                                        <a href="/admin/order/{{ $order->id }}/edit"
-                                                            class="btn btn-sm btn-warning"><span>
-                                                                <i class="fas fa-pencil-alt"></i>
-                                                            </span>
-                                                        </a>
-                                                        @can('superAdmin')
+                                                    @can('admin')
+                                                        <td class="text-center">
+                                                            <a href="/admin/order/{{ $order->id }}/edit"
+                                                                class="btn btn-sm btn-warning"><span>
+                                                                    <i class="fas fa-pencil-alt"></i>
+                                                                </span>
+                                                            </a>
                                                             <form action="/admin/order/{{ $order->id }}" method="post"
                                                                 class="d-inline">
                                                                 @method('delete')
@@ -97,8 +101,8 @@
                                                                     onclick="return confirm('Apakah anda yakin untuk menghapus data?')"><span><i
                                                                             class="fas fa-trash"></i></span></button>
                                                             </form>
-                                                        @endcan
-                                                    </td>
+                                                        </td>
+                                                    @endcan
                                                 </tr>
                                             @empty
                                                 <tr>
