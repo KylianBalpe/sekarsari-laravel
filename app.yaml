@@ -1,5 +1,4 @@
 runtime: php
-services: default
 env: flex
 
 runtime_config:
