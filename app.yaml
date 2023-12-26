@@ -22,9 +22,6 @@ resources:
   memory_gb: 0.5
   disk_size_gb: 10
 
-# Use the official PHP 8.1 image as the base image
-image: gcr.io/google-appengine/php81
-
 # Copy composer.lock and composer.json to the container
 # and set the working directory
 copy_files:
