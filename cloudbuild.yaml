@@ -24,4 +24,4 @@ steps:
 images:
   - "gcr.io/$PROJECT_ID/sekarsari-app-engine:$COMMIT_SHA"
 
-logsBucket: "gs://sekarsari-app-engine-cloud-build-logs"
+logsBucket: "gs://sekarsari-app-engine"
