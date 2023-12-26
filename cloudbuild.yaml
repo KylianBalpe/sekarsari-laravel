@@ -1,13 +1,25 @@
 steps:
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - "build"
+      - "-t"
+      - "gcr.io/$PROJECT_ID/sekarsari-laravel:$COMMIT_SHA"
+      - "."
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - "push"
+      - "gcr.io/$PROJECT_ID/sekarsari-laravel:$COMMIT_SHA"
   - name: "gcr.io/cloud-builders/gcloud"
     args:
-      - "app"
+      - "run"
       - "deploy"
-      - "app.yaml"
-      - "--image-url=gcr.io/$PROJECT_ID/sekarsari-laravel:$COMMIT_SHA"
-      - "--version=$SHORT_SHA"
-      - "--project=$PROJECT_ID"
-      - "--quiet"
+      - "sekarsari-laravel"
+      - "--image=gcr.io/$PROJECT_ID/sekarsari-laravel:$COMMIT_SHA"
+      - "--region=us-central1"
+      - "--cpu=2"
+      - "--memory=2048Mi"
+      - "--allow-unauthenticated"
+      - "--set-secrets=DB_HOST=db_host:latest,DB_PORT=db_port:latest,DB_USERNAME=db_username:latest,DB_PASSWORD=db_password:latest,APP_KEY=laravel_app_key:latest"
 images:
   - "gcr.io/$PROJECT_ID/sekarsari-laravel:$COMMIT_SHA"
 logsBucket: "gs://sekarsari-laravel-buckets/logs"
