@@ -22,18 +22,5 @@ resources:
   memory_gb: 0.5
   disk_size_gb: 10
 
-# Copy composer.lock and composer.json to the container
-# and set the working directory
-copy_files:
-  - source: composer.lock
-    destination: /app
-  - source: composer.json
-    destination: /app
-  - source: ./
-    destination: /app
-
-# Install dependencies using Composer
-install: true
-
 # Set the entrypoint command to run migration.sh
 entrypoint: /app/migration.sh
