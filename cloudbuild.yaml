@@ -2,12 +2,6 @@ steps:
   - name: "gcr.io/cloud-builders/gcloud"
     args:
       - "app"
-      - "create" # Add this line to create an App Engine application
-      - "--project=$PROJECT_ID"
-      - "--region=us-central1" # Specify the region as us-central1
-  - name: "gcr.io/cloud-builders/gcloud"
-    args:
-      - "app"
       - "deploy"
       - "app.yaml"
       - "--image-url=gcr.io/$PROJECT_ID/sekarsari-laravel:$COMMIT_SHA"
