@@ -96,8 +96,20 @@
     </div>
     <!-- /.content-wrapper -->
     <script>
-        document.addEventListener('trix-file-accept', function(e) {
-            e.preventDefault();
+        document.addEventListener("trix-initialize", function(e) {
+            const fileTools = document.querySelector(".trix-button-group--file-tools");
+            // null check hack: trix-initialize gets called twice for some reason, sometimes it is null :shrug:
+            fileTools?.remove();
+        });
+        // Dont allow images/etc to be pasted
+        document.addEventListener("trix-attachment-add", function(event) {
+            if (!event.attachment.file) {
+                event.attachment.remove()
+            }
         })
+        // No files, ever
+        document.addEventListener("trix-file-accept", function(event) {
+            event.preventDefault();
+        });
     </script>
 @endsection

@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\MigrationSeedController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 
@@ -33,4 +33,5 @@ Route::middleware('admin')->group(function () {
     });
     Route::resource('/admin/product', ProductController::class)->except('show');
     Route::resource('/admin/order', OrderController::class)->except('show');
+    Route::resource('/admin/user', UserController::class)->except('show');
 });

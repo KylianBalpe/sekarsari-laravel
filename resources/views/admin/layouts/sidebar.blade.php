@@ -47,7 +47,7 @@
                         <i class="nav-icon fas fa-receipt"></i>
                         <p>Payments</p>
                     </a>
-                </li>
+                </li> --}}
                 @can('superAdmin')
                     <li class="nav-item">
                         <a href="/admin/user" class="nav-link {{ Request::is('admin/user*') ? 'active' : '' }}">
@@ -55,7 +55,7 @@
                             <p>Users</p>
                         </a>
                     </li>
-                @endcan --}}
+                @endcan
                 <li class="nav-header">LOGOUT</li>
                 <li class="nav-item">
                     <a href="/logout" class="nav-link" id="logout-link">

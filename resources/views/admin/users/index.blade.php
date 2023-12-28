@@ -52,68 +52,64 @@
                                     <table class="table table-bordered table-striped table-hover">
                                         <thead>
                                             <tr>
-                                                <th style="width: 40px">No</th>
-                                                <th style="width: 120px">Nama</th>
-                                                <th style="width: 120px">Product</th>
-                                                <th>Alamat</th>
-                                                <th style="width: 160px" class="text-center">Disajikan</th>
-                                                <th style="width: 120px" class="text-center">Waktu</th>
-                                                <th style="width: 75px" class="text-center">Jumlah</th>
-                                                <th style="width: 120px">Biaya</th>
-                                                <th style="width: 180px" class="text-center">Status Pembayaran</th>
-                                                @can('admin')
-                                                    <th style="width: 120px" class="text-center">Action</th>
-                                                @endcan
+                                                <th class="text-center">No</th>
+                                                <th>Nama</th>
+                                                <th>Username</th>
+                                                <th>Email</th>
+                                                <th class="text-center">Role</th>
+                                                <th class="text-center">Active Status</th>
+                                                <th class="text-center">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @forelse ($orders as $order)
+                                            @forelse ($users as $user)
                                                 <tr>
-                                                    <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $order->user->name }}</td>
-                                                    <td>{{ $order->product->nama }}</td>
-                                                    <td>{{ $order->alamat }}</td>
-                                                    <td class="text-center">{{ $order->disajikan->format('d F Y') }}</td>
-                                                    <td class="text-center">{{ $order->disajikan->format('H:i:s') }}</td>
-                                                    <td class="text-center">{{ $order->total }}</td>
-                                                    <td>@currency($order->price)</td>
+                                                    <td class="text-center">{{ $loop->iteration }}</td>
+                                                    <td>{{ $user->name }}</td>
+                                                    <td>{{ $user->username }}</td>
+                                                    <td>{{ $user->email }}</td>
                                                     <td class="text-center">
-                                                        @if ($order->status_payment === 'Sudah Dibayar')
-                                                            <span class="badge badge-success">{{ $order->status_payment }}
-                                                            </span>
+                                                        @if ($user->role == 1)
+                                                            <span class="badge badge-primary">Super Admin</span>
+                                                        @elseif ($user->role == 2)
+                                                            <span class="badge badge-success">Admin</span>
                                                         @else
-                                                            <span class="badge badge-warning">{{ $order->status_payment }}
-                                                            </span>
+                                                            <span class="badge badge-warning">User</span>
                                                         @endif
                                                     </td>
-                                                    @can('admin')
-                                                        <td class="text-center">
-                                                            <a href="/admin/order/{{ $order->id }}/edit"
-                                                                class="btn btn-sm btn-warning"><span>
-                                                                    <i class="fas fa-pencil-alt"></i>
-                                                                </span>
-                                                            </a>
-                                                            <form action="/admin/order/{{ $order->id }}" method="post"
-                                                                class="d-inline">
-                                                                @method('delete')
-                                                                @csrf
-                                                                <button class="btn btn-sm btn-danger"
-                                                                    onclick="return confirm('Apakah anda yakin untuk menghapus data?')"><span><i
-                                                                            class="fas fa-trash"></i></span></button>
-                                                            </form>
-                                                        </td>
-                                                    @endcan
+                                                    <td class="text-center">
+                                                        @if ($user->is_active == 1)
+                                                            <span class="badge badge-success">Active</span>
+                                                        @else
+                                                            <span class="badge badge-danger">Not Active</span>
+                                                        @endif
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <a href="/admin/user/{{ $user->id }}/edit"
+                                                            class="btn btn-sm btn-warning"><span>
+                                                                <i class="fas fa-pencil-alt"></i>
+                                                            </span>
+                                                        </a>
+                                                        <form action="/admin/user/{{ $user->id }}" method="post"
+                                                            class="d-inline">
+                                                            @method('delete')
+                                                            @csrf
+                                                            <button class="btn btn-sm btn-danger"
+                                                                onclick="return confirm('Apakah anda yakin untuk menghapus data?')"><span><i
+                                                                        class="fas fa-trash"></i></span></button>
+                                                        </form>
+                                                    </td>
                                                 </tr>
                                             @empty
                                                 <tr>
-                                                    <td colspan="9" class="text-center">Belum ada data order</td>
+                                                    <td colspan="9" class="text-center">Tidak ada data user</td>
                                                 </tr>
                                             @endforelse
                                         </tbody>
                                     </table>
                                 </div>
                                 <div class="d-flex justify-content-center pt-3">
-                                    {{ $orders->links() }}
+                                    {{ $users->links() }}
                                 </div>
                             </div>
                             <!-- /.card -->

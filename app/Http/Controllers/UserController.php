@@ -12,7 +12,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.user.index', [
+        return view('admin.users.index', [
             'users' => User::paginate(10),
             'title' => 'Users'
         ]);
